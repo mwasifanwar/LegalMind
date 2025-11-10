@@ -1,0 +1,28 @@
+api:
+  host: "0.0.0.0"
+  port: 8000
+  debug: true
+  workers: 4
+
+logging:
+  level: "INFO"
+  file: "./logs/legalmind.log"
+  max_size: 10485760
+  backup_count: 5
+
+storage:
+  upload_dir: "./uploads"
+  results_dir: "./results"
+  models_dir: "./models"
+  max_file_size: 10485760
+
+security:
+  allowed_origins: ["*"]
+  rate_limit: "100 per hour"
+  api_key_required: false
+
+features:
+  real_time_analysis: true
+  batch_processing: true
+  export_formats: ["json", "pdf", "html"]
+  visualization: true

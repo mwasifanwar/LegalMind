@@ -1,0 +1,48 @@
+legal_bert:
+  model_name: "nlpaueb/legal-bert-base-uncased"
+  max_length: 512
+  num_labels: 9
+  hidden_dropout_prob: 0.1
+
+clause_classifier:
+  num_clause_types: 8
+  hidden_size: 768
+  dropout_rate: 0.2
+
+compliance_checker:
+  num_risk_classes: 2
+  num_compliance_classes: 5
+  regulation_specific: true
+
+summarization:
+  model_name: "mrm8488/legal-t5-base"
+  max_input_length: 1024
+  max_output_length: 150
+  temperature: 0.7
+
+training:
+  batch_size: 16
+  learning_rate: 2e-5
+  weight_decay: 0.01
+  epochs: 10
+  warmup_steps: 100
+
+processing:
+  document:
+    max_file_size: 10485760
+    supported_formats: [".pdf", ".docx", ".txt"]
+  
+  text:
+    chunk_size: 1000
+    overlap: 100
+    min_segment_length: 50
+
+analysis:
+  risk:
+    high_risk_threshold: 0.7
+    critical_risk_threshold: 0.9
+    pattern_matching: true
+  
+  compliance:
+    enabled_regulations: ["gdpr", "ccpa", "sox", "hippa"]
+    check_frequency: "always"
